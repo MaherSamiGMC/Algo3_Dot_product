@@ -1,0 +1,77 @@
+PROCEDURE dot_product(T1:ARRAY_OF INTEGER[4],T2:ARRAY_OF INTEGER[4],VAR ps:INTEGER:=0;)
+VAR
+    T1x:INTEGER:=0;
+    T1y:INTEGER:=0;
+    T2x:INTEGER:=0;
+    T2y:INTEGER:=0;
+BEGIN
+    T1x:=T1[1]-T1[0];
+    T1y:=T1[3]-T1[2];
+    T2x:=T2[1]-T2[0];
+    T2y:=T2[3]-T2[2];
+
+    ps:=T1x*T2x+T1y+T2y
+END
+
+ALGORITHM  Dot product
+
+VAR
+    V1:ARRAY_OF INTEGER[4];
+    V1:ARRAY_OF INTEGER[4];
+    ps:INTEGER:=0;
+    i:INTEGER:=0;
+    j:INTEGER:=0;
+    n:INTEGER:=0;
+BEGIN
+    read(n);
+    FOR i FROM 0 TO n-1 DO
+        FOR j FROM 0 TO 3 DO
+            read(V1[j],V2[j]);
+        END_FOR
+        dot_product(V1,V2,ps);
+        IF (ps=0) THEN
+            Write("V1 and V2 are orthogonal");
+        ELSE
+            Write("V1 and V2 are not orthogonal");
+        END_IF
+    END_FOR
+END
+// with a function :
+
+FUNCTION dot_product(T1:ARRAY_OF INTEGER[4],T2:ARRAY_OF INTEGER[4]) : INTEGER
+VAR
+    T1x:INTEGER:=0;
+    T1y:INTEGER:=0;
+    T2x:INTEGER:=0;
+    T2y:INTEGER:=0;
+
+BEGIN
+    T1x:=T1[1]-T1[0];
+    T1y:=T1[3]-T1[2];
+    T2x:=T2[1]-T2[0];
+    T2y:=T2[3]-T2[2];
+
+    RETURN T1x*T2x+T1y+T2y
+END
+
+ALGORITHM  Dot product
+
+VAR
+    V1:ARRAY_OF INTEGER[4];
+    V1:ARRAY_OF INTEGER[4];
+    i:INTEGER:=0;
+    j:INTEGER:=0;
+    n:INTEGER:=0;
+BEGIN
+    read(n);
+    FOR i FROM 0 TO n-1 DO
+        FOR j FROM 0 TO 3 DO
+            read(V1[j],V2[j]);
+        END_FOR
+        IF (dot_product=0) THEN
+            Write("V1 and V2 are orthogonal");
+        ELSE
+            Write("V1 and V2 are not orthogonal");
+        END_IF
+    END_FOR
+END
